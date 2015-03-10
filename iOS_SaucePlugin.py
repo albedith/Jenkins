@@ -41,7 +41,7 @@ userName = os.environ.get('SAUCE_USER_NAME')
 apiKey = os.environ.get('SAUCE_API_KEY')
 startingUrl = os.environ.get('SELENIUM_STARTING_URL')
 
-print host,port,platform,version,browser,device,deviceType,driver,onDemandBrowsers,url,userName,apiKey,startingUrl
+print (host,port,platform,version,browser,device,deviceType,driver,onDemandBrowsers,url,userName,apiKey,startingUrl)
 
 class AppiumMobileWebAppTest(unittest.TestCase):
     def setUp(self):
