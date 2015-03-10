@@ -54,7 +54,7 @@ class AppiumMobileWebAppTest(unittest.TestCase):
         self.desired_capabilities['deviceName'] = os.environ.get('SELENIUM_DEVICE')
         self.desired_capabilities['browserName'] = os.environ.get('SELENIUM_BROWSER')
         self.desired_capabilities['appium-version'] = '1.3.6'
-        self.desired_capabilities['name'] = 'iOS Example from Jenkins'
+        self.desired_capabilities['name'] = 'iOS Example from Jenkins with Sauce OnDemand Plugin'
 
         self.driver = webdriver.Remote(command_executor = ('http://' + SAUCE_USERNAME + ':' + SAUCE_ACCESS_KEY + '@ondemand.saucelabs.com:80/wd/hub'), desired_capabilities = self.desired_capabilities) 
         self.driver.implicitly_wait(30)    
