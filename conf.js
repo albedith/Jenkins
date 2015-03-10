@@ -6,8 +6,8 @@
 // >protractor conf.js
 
 exports.config = {
-  sauceUser: 'popa',
-  sauceKey: 'd6394c3f-ee5d-42ea-a4ad-1a5ada1fbf43',
+  sauceUser: process.env.SAUCE_USERNAME,
+  sauceKey: process.env.SAUCE_ACCESS_KEY,
 
  //Capabilities to be passed to the webdriver instance.
   capabilities: {
