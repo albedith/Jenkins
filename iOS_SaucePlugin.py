@@ -27,6 +27,8 @@ SAUCE_ACCESS_KEY = os.environ.get('SAUCE_ACCESS_KEY')
 
 #Credentials for SauceClient
 test_result = sauceclient.SauceClient(SAUCE_USERNAME, SAUCE_ACCESS_KEY)
+
+#Retreiving enviroment variables from Jenkins Plugin
 host = os.environ.get('SELENIUM_HOST')
 port = os.environ.get('SELENIUM_PORT')
 platform = os.environ.get('SELENIUM_PLATFORM')
@@ -47,7 +49,7 @@ class AppiumMobileWebAppTest(unittest.TestCase):
     def setUp(self):
 
 # When you select the platforms/browser in the plugin the plugin will set those values to a series of environment variables.
-# You need to point your desired capabilities to these enviroment variables.
+# You need to point your desired capabilities to these enviroment variables. Be careful, some of them can't be properly set by the plugin, so you will have to set it yourself.
 
 # SELENIUM_HOST - The hostname of the Selenium server
 # SELENIUM_PORT - The port of the Selenium server
@@ -64,11 +66,11 @@ class AppiumMobileWebAppTest(unittest.TestCase):
 # SELENIUM_STARTING_URL - The value of the Starting URL field
 
         self.desired_capabilities = {}
-        self.desired_capabilities['platformName'] = os.environ.get('SELENIUM_PLATFORM')
+        self.desired_capabilities['platformName'] = 'iOS'
         self.desired_capabilities['platformVersion'] = os.environ.get('SELENIUM_VERSION')
         self.desired_capabilities['deviceName'] = os.environ.get('SELENIUM_DEVICE')
-        self.desired_capabilities['browserName'] = os.environ.get('SELENIUM_DEVICE_TYPE')
-        self.desired_capabilities['appium-version'] = '1.3.6'
+        self.desired_capabilities['browserName'] = 'Safari' #This desired capability can't be properly set by the Jenkins Sauce OnDemand Plugin"
+        self.desired_capabilities['appium-version'] = '1.3.6' #This desired capability can't be properly set by the Jenkins Sauce OnDemand Plugin"
         self.desired_capabilities['name'] = 'iOS Example from Jenkins with Sauce OnDemand Plugin'
 
         self.driver = webdriver.Remote(command_executor = ('http://' + SAUCE_USERNAME + ':' + SAUCE_ACCESS_KEY + '@ondemand.saucelabs.com:80/wd/hub'), desired_capabilities = self.desired_capabilities) 
