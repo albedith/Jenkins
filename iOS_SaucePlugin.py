@@ -52,7 +52,7 @@ class AppiumMobileWebAppTest(unittest.TestCase):
         self.desired_capabilities['platformName'] = os.environ.get('SELENIUM_PLATFORM')
         self.desired_capabilities['platformVersion'] = os.environ.get('SELENIUM_VERSION')
         self.desired_capabilities['deviceName'] = os.environ.get('SELENIUM_DEVICE')
-        self.desired_capabilities['browserName'] = os.environ.get('SELENIUM_BROWSER')
+        self.desired_capabilities['browserName'] = os.environ.get('SELENIUM_DEVICE_TYPE')
         self.desired_capabilities['appium-version'] = '1.3.6'
         self.desired_capabilities['name'] = 'iOS Example from Jenkins with Sauce OnDemand Plugin'
 
@@ -67,7 +67,21 @@ class AppiumMobileWebAppTest(unittest.TestCase):
         self.driver.get('http://www.theuselessweb.com/')
         title = self.driver.title
         self.assertEquals("The Useless Web", title) 
-        time.sleep(10)  
+        time.sleep(10) 
+
+        host = os.environ.get('SELENIUM_HOST')
+        port = os.environ.get('SELENIUM_PORT')
+        platform = os.environ.get('SELENIUM_PLATFORM')
+        version = os.environ.get('SELENIUM_VERSION')
+        browser = os.environ.get('SELENIUM_BROWSER')
+        device = os.environ.get('SELENIUM_DEVICE')
+        deviceType = os.environ.get('SELENIUM_DEVICE_TYPE')
+        driver = os.environ.get('SELENIUM_DRIVER')
+        onDemandBrowsers = os.environ.get('SAUCE_ONDEMAND_BROWSERS')
+        url = os.environ.get('SELENIUM_URL')
+        userName = os.environ.get('SAUCE_USER_NAME')
+        apiKey = os.environ.get('SAUCE_API_KEY')
+        startingUrl = os.environ.get('SELENIUM_STARTING_URL')
 
     def tearDown(self):
         print("Link to your job: https://saucelabs.com/jobs/%s" % self.driver.session_id)
