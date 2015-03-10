@@ -34,6 +34,7 @@ class AppiumMobileWebAppTest(unittest.TestCase):
         self.desired_capabilities = {}
         self.desired_capabilities['browserName'] = 'chrome'
         self.desired_capabilities['platform'] = 'Windows 8.1'
+        self.desired_capabilities['name'] = 'Chrome Example from Jenkins'
 
         self.driver = webdriver.Remote(command_executor = ('http://' + SAUCE_USERNAME + ':' + SAUCE_ACCESS_KEY + '@ondemand.saucelabs.com:80/wd/hub'), desired_capabilities = self.desired_capabilities) 
         self.driver.implicitly_wait(30)    
