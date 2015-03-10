@@ -5,10 +5,9 @@
 // You can run the test by executing the folliwng line on your terminal:
 // >protractor conf.js
 
-
 exports.config = {
-  sauceUser: SAUCE_USERNAME,
-  sauceKey: SAUCE_ACCESS_KEY,
+  sauceUser: 'popa',
+  sauceKey: 'd6394c3f-ee5d-42ea-a4ad-1a5ada1fbf43',
 
  //Capabilities to be passed to the webdriver instance.
   capabilities: {
