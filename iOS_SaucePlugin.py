@@ -27,6 +27,21 @@ SAUCE_ACCESS_KEY = os.environ.get('SAUCE_ACCESS_KEY')
 
 #Credentials for SauceClient
 test_result = sauceclient.SauceClient(SAUCE_USERNAME, SAUCE_ACCESS_KEY)
+host = os.environ.get('SELENIUM_HOST')
+port = os.environ.get('SELENIUM_PORT')
+platform = os.environ.get('SELENIUM_PLATFORM')
+version = os.environ.get('SELENIUM_VERSION')
+browser = os.environ.get('SELENIUM_BROWSER')
+device = os.environ.get('SELENIUM_DEVICE')
+deviceType = os.environ.get('SELENIUM_DEVICE_TYPE')
+driver = os.environ.get('SELENIUM_DRIVER')
+onDemandBrowsers = os.environ.get('SAUCE_ONDEMAND_BROWSERS')
+url = os.environ.get('SELENIUM_URL')
+userName = os.environ.get('SAUCE_USER_NAME')
+apiKey = os.environ.get('SAUCE_API_KEY')
+startingUrl = os.environ.get('SELENIUM_STARTING_URL')
+
+print host,port,platform,version,browser,device,deviceType,driver,onDemandBrowsers,url,userName,apiKey,startingUrl
 
 class AppiumMobileWebAppTest(unittest.TestCase):
     def setUp(self):
@@ -68,20 +83,6 @@ class AppiumMobileWebAppTest(unittest.TestCase):
         title = self.driver.title
         self.assertEquals("The Useless Web", title) 
         time.sleep(10) 
-
-        host = os.environ.get('SELENIUM_HOST')
-        port = os.environ.get('SELENIUM_PORT')
-        platform = os.environ.get('SELENIUM_PLATFORM')
-        version = os.environ.get('SELENIUM_VERSION')
-        browser = os.environ.get('SELENIUM_BROWSER')
-        device = os.environ.get('SELENIUM_DEVICE')
-        deviceType = os.environ.get('SELENIUM_DEVICE_TYPE')
-        driver = os.environ.get('SELENIUM_DRIVER')
-        onDemandBrowsers = os.environ.get('SAUCE_ONDEMAND_BROWSERS')
-        url = os.environ.get('SELENIUM_URL')
-        userName = os.environ.get('SAUCE_USER_NAME')
-        apiKey = os.environ.get('SAUCE_API_KEY')
-        startingUrl = os.environ.get('SELENIUM_STARTING_URL')
 
     def tearDown(self):
         print("Link to your job: https://saucelabs.com/jobs/%s" % self.driver.session_id)
