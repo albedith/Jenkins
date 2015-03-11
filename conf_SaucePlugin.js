@@ -16,5 +16,5 @@ exports.config = {
     'platform': 'Windows 8.1',
  	'version': '33'},
 
-  specs: ['spec.js']
+  specs: ['spec_SaucePlugin.js']
 }
