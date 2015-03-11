@@ -13,6 +13,24 @@
 
 // browser is a global created by Protractor, which is used for browser-level commands such as navigation with browser.get
 
+// Sauce OnDemand Plugin
+// When you select the platforms/browser in the plugin the plugin will set those values to a series of environment variables.
+// You need to point your desired capabilities to these enviroment variables. Be careful, some of them can't be properly set by the plugin, so you will have to set it yourself.
+
+// SELENIUM_HOST - The hostname of the Selenium server
+// SELENIUM_PORT - The port of the Selenium server
+// SELENIUM_PLATFORM - The operating system of the selected browser
+// SELENIUM_VERSION - The version number of the selected browser
+// SELENIUM_BROWSER - The browser name of the selected browser.
+// SELENIUM_DEVICE - The device name of the selected browser (only available for mobile browsers)
+// SELENIUM_DEVICE_TYPE - The device type of the selected browser (only available for Appium browsers)
+// SELENIUM_DRIVER - Contains the operating system, version and browser name of the selected browser, in a format designed for use by the Selenium Client Factory
+// SAUCE_ONDEMAND_BROWSERS - A JSON-formatted string representing the selected browsers
+// SELENIUM_URL - The initial URL to load when the test begins
+// SAUCE_USER_NAME - The user name used to invoke Sauce OnDemand
+// SAUCE_API_KEY - The access key for the user used to invoke Sauce OnDemand
+// SELENIUM_STARTING_URL - The value of the Starting URL field
+
 //Retreiving enviroment variables from Jenkins Plugin
   {console.log("SELENIUM_HOST:", process.env.SELENIUM_HOST)};
   {console.log("SELENIUM_PORT:", process.env.SELENIUM_PORT)};
