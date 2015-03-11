@@ -11,10 +11,10 @@ exports.config = {
 
  //Capabilities to be passed to the webdriver instance.
   capabilities: {
-    'browserName':'firefox',
+    'browserName': process.env.SELENIUM_BROWSER,
     'name':'Angular Test with Protractor from Jenkins',
-    'platform': 'Windows 8.1',
- 	'version': '33'},
+    'platform': process.env.SELENIUM_PLATFORM,
+ 	'version': process.env.SELENIUM_VERSION},
 
   specs: ['spec_SaucePlugin.js']
 }
