@@ -32,7 +32,7 @@ deviceType = os.environ.get('SELENIUM_DEVICE_TYPE')
 driver = os.environ.get('SELENIUM_DRIVER')
 onDemandBrowsers = os.environ.get('SAUCE_ONDEMAND_BROWSERS')
 url = os.environ.get('SELENIUM_URL')
-userName = os.environ.get('SAUCE_USER_NAME')
+userName = os.environ.get('SAUCE_USERNAME')
 apiKey = os.environ.get('SAUCE_API_KEY')
 startingUrl = os.environ.get('SELENIUM_STARTING_URL')
 
