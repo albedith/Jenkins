@@ -32,7 +32,7 @@ deviceType = os.environ.get('SELENIUM_DEVICE_TYPE')
 driver = os.environ.get('SELENIUM_DRIVER')
 onDemandBrowsers = os.environ.get('SAUCE_ONDEMAND_BROWSERS')
 url = os.environ.get('SELENIUM_URL')
-userName = os.environ.get('SAUCE_USERNAME')
+userName = os.environ.get('SAUCE_USER_NAME')
 apiKey = os.environ.get('SAUCE_API_KEY')
 startingUrl = os.environ.get('SELENIUM_STARTING_URL')
 
@@ -66,7 +66,7 @@ class AppiumMobileWebAppTest(unittest.TestCase):
         self.desired_capabilities['appium-version'] = '1.3.6' #This desired capability can't be properly set by the Jenkins Sauce OnDemand Plugin"
         self.desired_capabilities['name'] = 'iOS Example from Jenkins with Sauce OnDemand Plugin'
 
-        self.driver = webdriver.Remote(command_executor = ('http://' + userName+ ':' + apiKey + '@ondemand.saucelabs.com:80/wd/hub'), desired_capabilities = self.desired_capabilities) 
+        self.driver = webdriver.Remote(command_executor = ('http://' + userName + ':' + apiKey + '@ondemand.saucelabs.com:80/wd/hub'), desired_capabilities = self.desired_capabilities) 
         self.driver.implicitly_wait(30)    
 
     def test_https(self):
