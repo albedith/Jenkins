@@ -73,6 +73,7 @@ class AppiumMobileWebAppTest(unittest.TestCase):
         self.driver.implicitly_wait(30)    
 
     def test_https(self):
+        session_id = self.driver.session_id
         self.driver.get('https://www.saucelabs.com')
         title = self.driver.title
         self.assertEquals("Sauce Labs: Selenium Testing, Mobile Testing, JS Unit Testing and More", title) 
