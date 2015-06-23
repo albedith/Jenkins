@@ -14,8 +14,6 @@ import os
 import sys
 #importing the Appium Python bindings for Selenium Webdriver from the python Appium module.
 from appium import webdriver
-#importing the Selenium Python bindings for Selenium Webdriver from the python Selenium module.
-from selenium import webdriver
 #importing  the sauceclient which is a Python client library, used for accessing the Sauce Labs REST API to retrieve and update information about resources. 
 import sauceclient
 import json
@@ -66,13 +64,14 @@ class AppiumMobileWebAppTest(unittest.TestCase):
         self.desired_capabilities['platformVersion'] = os.environ.get('SELENIUM_VERSION')
         self.desired_capabilities['deviceName'] = os.environ.get('SELENIUM_DEVICE')
         self.desired_capabilities['browserName'] = 'Safari' #This desired capability can't be properly set by the Jenkins Sauce OnDemand Plugin"
-        self.desired_capabilities['appium-version'] = '1.3.6' #This desired capability can't be properly set by the Jenkins Sauce OnDemand Plugin"
+        self.desired_capabilities['appium-version'] = '1.4.0' #This desired capability can't be properly set by the Jenkins Sauce OnDemand Plugin"
         self.desired_capabilities['name'] = 'iOS Example from Jenkins with Sauce OnDemand Plugin'
 
         self.driver = webdriver.Remote(command_executor = ('http://' + userName + ':' + apiKey + '@ondemand.saucelabs.com:80/wd/hub'), desired_capabilities = self.desired_capabilities) 
         self.driver.implicitly_wait(30)    
 
     def test_https(self):
+        session_id = self.driver.session_id
         self.driver.get('https://www.saucelabs.com')
         title = self.driver.title
         self.assertEquals("Sauce Labs: Selenium Testing, Mobile Testing, JS Unit Testing and More", title) 
