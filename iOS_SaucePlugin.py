@@ -64,7 +64,7 @@ class AppiumMobileWebAppTest(unittest.TestCase):
 # SELENIUM_STARTING_URL - The value of the Starting URL field
 
         self.desired_capabilities = {}
-        self.desired_capabilities['platformName'] = 'iOS' #This desired capability can't be properly set by the Jenkins Sauce OnDemand Plugin"
+        self.desired_capabilities['platformName'] = os.environ.get('SELENIUM_PLATFORM')
         self.desired_capabilities['platformVersion'] = os.environ.get('SELENIUM_VERSION')
         self.desired_capabilities['deviceName'] = os.environ.get('SELENIUM_DEVICE')
         self.desired_capabilities['browserName'] = 'Safari' #This desired capability can't be properly set by the Jenkins Sauce OnDemand Plugin"
