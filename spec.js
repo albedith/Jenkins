@@ -19,3 +19,4 @@ describe('angularjs homepage', function() {
 	expect(browser.getTitle()).toEqual('AngularJS — Superheroic JavaScript MVW Framework');
   });
 });
+
