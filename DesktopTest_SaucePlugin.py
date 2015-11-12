@@ -23,6 +23,8 @@ import new
 SAUCE_USERNAME = os.environ.get('SAUCE_USERNAME')
 SAUCE_ACCESS_KEY = os.environ.get('SAUCE_ACCESS_KEY')
 
+print (SAUCE_USERNAME, SAUCE_ACCESS_KEY)
+
 #Credentials for SauceClient
 test_result = sauceclient.SauceClient(SAUCE_USERNAME, SAUCE_ACCESS_KEY)
 
