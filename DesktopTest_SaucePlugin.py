@@ -54,7 +54,8 @@ class DesktopTest(unittest.TestCase):
         self.desired_capabilities['version'] = os.environ.get('SELENIUM_VERSION')
         self.desired_capabilities['name'] = 'Example from Jenkins with Sauce OnDemand Plugin'
 
-        self.driver = webdriver.Remote(command_executor = ('http://' + SAUCE_USERNAME + ':' + SAUCE_ACCESS_KEY + '@ondemand.saucelabs.com:80/wd/hub'), desired_capabilities = self.desired_capabilities)
+        # self.driver = webdriver.Remote(command_executor = ('http://' + SAUCE_USERNAME + ':' + SAUCE_ACCESS_KEY + '@ondemand.saucelabs.com:80/wd/hub'), desired_capabilities = self.desired_capabilities)
+        self.driver = webdriver.Remote(command_executor = ('http://' + os.environ.get('SAUCE_USERNAME') + ':' + os.environ.get('SAUCE_ACCESS_KEY') + '@ondemand.saucelabs.com:80/wd/hub'), desired_capabilities = self.desired_capabilities)
         self.driver.implicitly_wait(30)
 
     def test_https(self):
