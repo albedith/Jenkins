@@ -43,13 +43,13 @@ startingUrl = os.environ.get('SELENIUM_STARTING_URL')
 
 print (host,port,platform,version,browser,device,deviceType,driver,onDemandBrowsers,url,userName,apiKey,startingUrl)
 
-class AppiumMobileWebAppTest(unittest.TestCase):
+class DesktopTest(unittest.TestCase):
     def setUp(self):
 
         self.desired_capabilities = {}
         self.desired_capabilities['browserName'] = os.environ.get('SELENIUM_BROWSER')
         self.desired_capabilities['platform'] = os.environ.get('SELENIUM_PLATFORM')
-        self.desired_Capabilities['version'] = os.environ.get('SELENIUM_VERSION')
+        self.desired_capabilities['version'] = os.environ.get('SELENIUM_VERSION')
         self.desired_capabilities['name'] = 'Example from Jenkins with Sauce OnDemand Plugin'
 
         self.driver = webdriver.Remote(command_executor = ('http://' + SAUCE_USERNAME + ':' + SAUCE_ACCESS_KEY + '@ondemand.saucelabs.com:80/wd/hub'), desired_capabilities = self.desired_capabilities)
