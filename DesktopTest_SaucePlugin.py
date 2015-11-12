@@ -26,13 +26,31 @@ SAUCE_ACCESS_KEY = os.environ.get('SAUCE_ACCESS_KEY')
 #Credentials for SauceClient
 test_result = sauceclient.SauceClient(SAUCE_USERNAME, SAUCE_ACCESS_KEY)
 
+#Retreiving enviroment variables from Jenkins Plugin
+host = os.environ.get('SELENIUM_HOST')
+port = os.environ.get('SELENIUM_PORT')
+platform = os.environ.get('SELENIUM_PLATFORM')
+version = os.environ.get('SELENIUM_VERSION')
+browser = os.environ.get('SELENIUM_BROWSER')
+device = os.environ.get('SELENIUM_DEVICE')
+deviceType = os.environ.get('SELENIUM_DEVICE_TYPE')
+driver = os.environ.get('SELENIUM_DRIVER')
+onDemandBrowsers = os.environ.get('SAUCE_ONDEMAND_BROWSERS')
+url = os.environ.get('SELENIUM_URL')
+userName = os.environ.get('SAUCE_USER_NAME')
+apiKey = os.environ.get('SAUCE_API_KEY')
+startingUrl = os.environ.get('SELENIUM_STARTING_URL')
+
+print (host,port,platform,version,browser,device,deviceType,driver,onDemandBrowsers,url,userName,apiKey,startingUrl)
+
 class AppiumMobileWebAppTest(unittest.TestCase):
     def setUp(self):
 
         self.desired_capabilities = {}
-        self.desired_capabilities['browserName'] = 'chrome'
-        self.desired_capabilities['platform'] = 'Windows 8.1'
-        self.desired_capabilities['name'] = 'Chrome Example from Jenkins'
+        self.desired_capabilities['browserName'] = os.environ.get('SELENIUM_BROWSER')
+        self.desired_capabilities['platform'] = os.environ.get('SELENIUM_PLATFORM')
+        self.desired_Capabilities['version'] = os.environ.get('SELENIUM_VERSION')
+        self.desired_capabilities['name'] = 'Example from Jenkins with Sauce OnDemand Plugin'
 
         self.driver = webdriver.Remote(command_executor = ('http://' + SAUCE_USERNAME + ':' + SAUCE_ACCESS_KEY + '@ondemand.saucelabs.com:80/wd/hub'), desired_capabilities = self.desired_capabilities)
         self.driver.implicitly_wait(30)
