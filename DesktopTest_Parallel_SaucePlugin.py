@@ -46,6 +46,7 @@ onDemandBrowsers = os.environ.get('SAUCE_ONDEMAND_BROWSERS')
 # print (host,port,platform,version,browser,device,deviceType,driver,onDemandBrowsers,url,userName,apiKey,startingUrl)
 
 print (onDemandBrowsers)
+print type (onDemandBrowsers)
 
 class DesktopTest(unittest.TestCase):
     def setUp(self):
