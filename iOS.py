@@ -34,7 +34,7 @@ class AppiumMobileWebAppTest(unittest.TestCase):
         self.desired_capabilities['platformVersion'] = '7.1'
         self.desired_capabilities['deviceName'] = 'iPhone Simulator'
         self.desired_capabilities['browserName'] = 'safari'
-        self.desired_capabilities['appium-version'] = '1.3.6'
+        self.desired_capabilities['appiumVersion'] = '1.8.0'
         self.desired_capabilities['name'] = 'iOS Example from Jenkins'
 
         self.driver = webdriver.Remote(command_executor = ('http://' + SAUCE_USERNAME + ':' + SAUCE_ACCESS_KEY + '@ondemand.saucelabs.com:80/wd/hub'), desired_capabilities = self.desired_capabilities) 
