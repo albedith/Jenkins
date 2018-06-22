@@ -86,8 +86,8 @@ class AppiumMobileWebAppTest(unittest.TestCase):
         time.sleep(10)
 
     def tearDown(self):
-        print "jobName" = os.environ.get('JOB_NAME')
-        print "buildNumber" = os.environ.get('BUILD_NUMBER')
+        print 'jobName' + os.environ.get('JOB_NAME')
+        print 'buildNumber' + os.environ.get('BUILD_NUMBER')
         
         print "message" = 'SauceOnDemandSessionID=' + self.driver.session_id + 'job-name=' + "someJobName"
         
