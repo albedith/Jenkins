@@ -86,6 +86,11 @@ class AppiumMobileWebAppTest(unittest.TestCase):
         time.sleep(10)
 
     def tearDown(self):
+        print "jobName" = os.environ.get('JOB_NAME')
+        print "buildNumber" = os.environ.get('BUILD_NUMBER')
+        
+        print "message" = 'SauceOnDemandSessionID=' + self.driver.session_id + 'job-name=' + "someJobName"
+        
         print("Link to your job: https://saucelabs.com/jobs/%s" % self.driver.session_id)
         self.driver.quit()
         #using the sauce client to set the pass or fail flags for this test according to the assertions results.
