@@ -67,7 +67,7 @@ class AppiumMobileWebAppTest(unittest.TestCase):
         self.desired_capabilities['platformName'] = os.environ.get('SELENIUM_PLATFORM')
         self.desired_capabilities['platformVersion'] = os.environ.get('SELENIUM_VERSION')
         self.desired_capabilities['deviceName'] = os.environ.get('SELENIUM_DEVICE')
-        self.desired_capabilities['browserName'] = 'browser' #This desired capability can't be properly set by the Jenkins Sauce OnDemand Plugin"
+        self.desired_capabilities['browserName'] = 'Chrome' #This desired capability can't be properly set by the Jenkins Sauce OnDemand Plugin"
         self.desired_capabilities['appium-version'] = '1.8.0' #This desired capability can't be properly set by the Jenkins Sauce OnDemand Plugin"
         self.desired_capabilities['build'] = os.environ.get('JENKINS_BUILD_NUMBER')
         self.desired_capabilities['name'] = 'Android Example from Jenkins with Sauce OnDemand Plugin'
