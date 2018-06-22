@@ -89,7 +89,7 @@ class AppiumMobileWebAppTest(unittest.TestCase):
         print 'jobName' + os.environ.get('JOB_NAME')
         print 'buildNumber' + os.environ.get('BUILD_NUMBER')
         
-        print 'SauceOnDemandSessionID=' + self.driver.session_id + 'job-name=' + 'someJobName'
+        print 'SauceOnDemandSessionID=' + self.driver.session_id + " " + 'job-name=' + 'someJobName'
         
         print("Link to your job: https://saucelabs.com/jobs/%s" % self.driver.session_id)
         self.driver.quit()
