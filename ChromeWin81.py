@@ -57,7 +57,6 @@ class AppiumMobileWebAppTest(unittest.TestCase):
 #             else:
 #                 test_result.jobs.update_job(self.driver.session_id, passed=False)
 #         finally:
-            self.driver.quit()
 
 if __name__ == '__main__':
         unittest.main()
