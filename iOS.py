@@ -24,14 +24,14 @@ SAUCE_USERNAME = os.environ.get('SAUCE_USERNAME')
 SAUCE_ACCESS_KEY = os.environ.get('SAUCE_ACCESS_KEY')
 
 #Credentials for SauceClient
-test_result = sauceclient.SauceClient(SAUCE_USERNAME, SAUCE_ACCESS_KEY)
+# test_result = sauceclient.SauceClient(SAUCE_USERNAME, SAUCE_ACCESS_KEY)
 
 class AppiumMobileWebAppTest(unittest.TestCase):
     def setUp(self):
 
         self.desired_capabilities = {}
         self.desired_capabilities['platformName'] = 'iOS'
-        self.desired_capabilities['platformVersion'] = '7.1'
+        self.desired_capabilities['platformVersion'] = '11.0'
         self.desired_capabilities['deviceName'] = 'iPhone Simulator'
         self.desired_capabilities['browserName'] = 'safari'
         self.desired_capabilities['appiumVersion'] = '1.8.0'
@@ -52,14 +52,14 @@ class AppiumMobileWebAppTest(unittest.TestCase):
 
     def tearDown(self):
         print("Link to your job: https://saucelabs.com/jobs/%s" % self.driver.session_id)
-        #using the sauce client to set the pass or fail flags for this test according to the assertions results.
-        try:
-            if sys.exc_info() == (None, None, None):
-                test_result.jobs.update_job(self.driver.session_id, passed=True)
-            else:
-                test_result.jobs.update_job(self.driver.session_id, passed=False)
-        finally:
-            self.driver.quit()
+        self.driver.quit()
+#         #using the sauce client to set the pass or fail flags for this test according to the assertions results.
+#         try:
+#             if sys.exc_info() == (None, None, None):
+#                 test_result.jobs.update_job(self.driver.session_id, passed=True)
+#             else:
+#                 test_result.jobs.update_job(self.driver.session_id, passed=False)
+#         finally:
 
 if __name__ == '__main__':
         unittest.main()
