@@ -16,6 +16,7 @@ import sys
 from appium import webdriver
 #importing  the sauceclient which is a Python client library, used for accessing the Sauce Labs REST API to retrieve and update information about resources.
 import sauceclient
+from nose.tools import with_setup
 import json
 import new
 
