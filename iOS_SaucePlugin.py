@@ -1,11 +1,10 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-"""This test assumes SAUCE_USERNAME and SAUCE_ACCESS_KEY are environment variables
-set to your Sauce Labs username and access key."""
+"""This test assumes SAUCE_USERNAME and SAUCE_ACCESS_KEY are environment variables"""
 
-#importing the unittest python module that provides classes for test automation. 
-import unittest 
+#importing the unittest python module that provides classes for test automation.
+import unittest
 #importing the time python module that supports time related functions.
 import time
 #importing the os module which provides a portable way of using operating system dependent functionality.
@@ -14,7 +13,7 @@ import os
 import sys
 #importing the Appium Python bindings for Selenium Webdriver from the python Appium module.
 from appium import webdriver
-#importing  the sauceclient which is a Python client library, used for accessing the Sauce Labs REST API to retrieve and update information about resources. 
+#importing  the sauceclient which is a Python client library, used for accessing the Sauce Labs REST API to retrieve and update information about resources.
 import sauceclient
 import json
 import new
@@ -68,21 +67,19 @@ class AppiumMobileWebAppTest(unittest.TestCase):
         self.desired_capabilities['platformVersion'] = os.environ.get('SELENIUM_VERSION')
         self.desired_capabilities['deviceName'] = os.environ.get('SELENIUM_DEVICE')
         self.desired_capabilities['browserName'] = 'Safari' #This desired capability can't be properly set by the Jenkins Sauce OnDemand Plugin"
-        self.desired_capabilities['appium-version'] = '1.4.3' #This desired capability can't be properly set by the Jenkins Sauce OnDemand Plugin"
+        self.desired_capabilities['appium-version'] = '1.8.0' #This desired capability can't be properly set by the Jenkins Sauce OnDemand Plugin"
         self.desired_capabilities['name'] = 'iOS Example from Jenkins with Sauce OnDemand Plugin'
 
-        self.driver = webdriver.Remote(command_executor = ('http://' + SAUCE_USERNAME + ':' + SAUCE_ACCESS_KEY + '@ondemand.saucelabs.com:80/wd/hub'), desired_capabilities = self.desired_capabilities) 
-        self.driver.implicitly_wait(30)    
+        self.driver = webdriver.Remote(command_executor = ('http://' + SAUCE_USERNAME + ':' + SAUCE_ACCESS_KEY + '@ondemand.saucelabs.com:80/wd/hub'), desired_capabilities = self.desired_capabilities)
+        self.driver.implicitly_wait(30)
 
     def test_https(self):
         self.driver.get('https://www.saucelabs.com')
+        time.sleep(5)
+        self.driver.get('http://www.google.com/')
         title = self.driver.title
-        self.assertEquals("Sauce Labs: Selenium Testing, Mobile Testing, JS Unit Testing and More", title) 
-        time.sleep(10)
-        self.driver.get('http://www.theuselessweb.com/')
-        title2 = self.driver.title
-        self.assertEquals("The Useless Web", title2) 
-        time.sleep(10) 
+        self.assertEquals("Google", title)
+        time.sleep(5) 
 
     def tearDown(self):
         print("Link to your job: https://saucelabs.com/jobs/%s" % self.driver.session_id)
@@ -97,4 +94,3 @@ class AppiumMobileWebAppTest(unittest.TestCase):
 
 if __name__ == '__main__':
         unittest.main()
-
